@@ -62,6 +62,13 @@ define({ "api": [
     "type": "post",
     "url": "/doctoralia/schedule-sync/login",
     "title": "Login all service",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request POST\\\n   --url http://api.spitzer.io/doctoralia/schedule-sync/login \\\n     --header 'content-type: application/x-www-form-urlencoded'\\\n     --data username = setup@doctoralia.com\\\n     --data password = 12345678",
+        "type": "curl"
+      }
+    ],
     "group": "Auth",
     "name": "PostAuthLogin",
     "success": {
@@ -115,6 +122,13 @@ define({ "api": [
     "type": "get",
     "url": "/doctoralia/schedule-sync/customers",
     "title": "List all customers",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n      --url http://api.spitzer.io/doctoralia/schedule-sync/customers \\\n      --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "group": "Customers",
     "name": "Customers",
     "header": {
@@ -181,6 +195,13 @@ define({ "api": [
     "type": "get",
     "url": "/doctoralia/schedule-sync/doctors/all",
     "title": "All doctors.",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'http://api.spitzer.io/doctoralia/schedule-sync/doctors/all?customer=5ce5e06d2a311a13c55505b9'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "permission": [
       {
         "name": "User"
@@ -279,7 +300,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"crm\": 1,\n  \"name\": Joao,\n  \"cpf\": 3212312312123,\n  \"advice\": 11876,\n  \"email\": joao@joao.com,\n  \"specialist\": \"Cardiologia\"\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"crm\": 2121,\n  \"name\": Joao,\n  \"cpf\": 3212312312123,\n  \"advice\": CRM,\n  \"email\": joao@joao.com,\n  \"specialist\": \"Cardiologia\"\n}]",
           "type": "json"
         }
       ]
@@ -301,6 +322,13 @@ define({ "api": [
     "type": "get",
     "url": "/doctors/specialist",
     "title": "All specialties released to the Health Insurance.",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'http://api.spitzer.io/doctoralia/schedule-sync/doctors/specialist?customer=5ce5e06d2a311a13c55505b9&healthInsurance=35&=&birthDay=01%2F01%2F1990'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "permission": [
       {
         "name": "User"
@@ -386,6 +414,13 @@ define({ "api": [
     "type": "get",
     "url": "/doctoralia/schedule-sync/doctors",
     "title": "Doctor with Parameters",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'http://api.spitzer.io/doctoralia/schedule-sync/doctors?customer=5ce5e06d2a311a13c55505b9&healthInsurance=35&specialist=225120&birthDay=12%2F31%2F1990'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "group": "Doctor",
     "header": {
       "fields": {
@@ -463,7 +498,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"name\": \"Joao\"\n}]",
+          "content": "   HTTP/1.1 200 OK\n{\n   \"message\": \"success\",\n   \"result\": [\n     {\n       \"id\": 1,\n       \"crm\": 12345,\n       \"name\": \"MARCO DASILVA\",\n       \"advice\": \"CRM\",\n       \"email\": \"silva@email.com\",\n       \"phone\": \"41123456789\",\n       \"mobile\": \"419999877744\",\n       \"specialist\": \"Médico cardiologista\",\n       \"calendarId\": \"eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg\"\n   ]\n}\n}",
           "type": "json"
         }
       ]
@@ -486,6 +521,13 @@ define({ "api": [
     "type": "get",
     "url": "/doctoralia/schedule-sync/doctors/profile",
     "title": "Profile Doctor.",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'http://api.spitzer.io/doctoralia/schedule-sync/doctors/profile?customer=5ce5e06d2a311a13c55505b9&crm=15904'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "permission": [
       {
         "name": "User"
@@ -629,6 +671,13 @@ define({ "api": [
     "type": "get",
     "url": "/doctoralia/schedule-sync/health-insurance",
     "title": "List all health insurance",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'http://api.spitzer.io/doctoralia/schedule-sync/health-insurance?customer=5ce5e06d2a311a13c55505b9&healthInsurance=1&birthDay=01%2F01%2F1990'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "permission": [
       {
         "name": "User"
@@ -714,6 +763,13 @@ define({ "api": [
     "type": "get",
     "url": "/doctoralia/schedule-sync/:calendarId/available-appointments",
     "title": "List all appointments",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'http://api-spitzer.io/doctoralia/schedule-sync/eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg/available-appointments?initial_datetime=02%2F02%2F2020&end_datetime=02%2F20%2F2020&customer=5ce5e06d2a311a13c55505b9'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "group": "Schedule",
     "header": {
       "fields": {
@@ -825,9 +881,16 @@ define({ "api": [
     "name": "GetDoctoraliaScheduleSyncCalendaridAvailableAppointments"
   },
   {
-    "type": "post",
-    "url": "/doctoralia/schedule-sync/:calendarId/schedule-appointment",
-    "title": "completed appointments",
+    "type": "get",
+    "url": "/doctoralia/schedule-sync/:calendarId/scheduled-appointments",
+    "title": "Scheduled Appointments",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'http://api.spitzer.io/doctoralia/schedule-sync/eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg/scheduled-appointments?initial_datetime=02%2F02%2F2020&end_datetime=02%2F20%2F2020&customer=5ce5e06d2a311a13c55505b9&health_insurance=35'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
     "group": "Schedule",
     "header": {
       "fields": {
@@ -847,7 +910,156 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "health_insurance",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
             "type": "String",
+            "optional": false,
+            "field": "initial_datetime",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "end_datetime",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "completed",
+            "description": "<p>appointments's list</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "result.id",
+            "description": "<p>Schedule id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.doctor",
+            "description": "<p>Schedule doctor</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.client",
+            "description": "<p>Schedule client</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.mobile",
+            "description": "<p>Schedule mobile</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.obs",
+            "description": "<p>Schedule obs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.origin",
+            "description": "<p>Schedule origin</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.date_schedule",
+            "description": "<p>Schedule date_schedule</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.hour_schedule",
+            "description": "<p>Schedule hour_schedule</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "   HTTP/1.1 200 OK\n[{\n     \"results\": {\n       \"results\": [{\n         \"id\": 232734,\n         \"doctor\": \"JOAO DA SILVA\",\n         \"client\": \"Maria teste\",\n         \"mobile\": \"41999175744\",\n         \"obs\": \"1212121\",\n         \"origin\": \"web\",\n         \"date_schedule\": \"18/02/2020\",\n         \"hour_schedule\": \"10:40:00:000\"\n       }]\n     },\n     \"message\": \"success\"\n   }]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/http/routes/doctoralia/schedule/scheduled-appointments/index.js",
+    "groupTitle": "Schedule",
+    "name": "GetDoctoraliaScheduleSyncCalendaridScheduledAppointments"
+  },
+  {
+    "type": "post",
+    "url": "/doctoralia/schedule-sync/:calendarId/schedule-appointment",
+    "title": "schedule appointments",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --request POST \\\n  --url 'http://api.spitzer.io/doctoralia/schedule-sync/eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg/schedule-appointment?customer=5ce5e06d2a311a13c55505b9' \\\n  --header 'content-type: application/x-www-form-urlencoded' \\\n  --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc' \\\n  --data health_insurance=35 \\\n  --data appointment_datetime=2020-02-18T10:40 \\\n  --data 'client_name=Maria teste' \\\n  --data client_birthdate=1985-06-28 \\\n  --data client_phone_number=41999175744 \\\n  --data client_email=alexandre@clinic.com.br \\\n  --data external_id=1212121 \\\n  --data customer=5ce5e06d2a311a13c55505b9",
+        "type": "curl"
+      }
+    ],
+    "group": "Schedule",
+    "header": {
+      "fields": {
+        "Auth": [
+          {
+            "group": "Auth",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Authentication token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
             "optional": false,
             "field": "health_insurance",
             "description": ""
@@ -871,42 +1083,35 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "client_name",
-            "description": ""
+            "description": "<p>Name this patient</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "client_birthdate",
-            "description": ""
+            "description": "<p>birth day this patient</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "client_phone_number",
-            "description": ""
+            "description": "<p>phone this patient</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "client_email",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "price",
-            "description": ""
+            "description": "<p>email this patient</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "external_id",
-            "description": ""
+            "description": "<p>Id external yout application</p>"
           }
         ]
       }
@@ -967,96 +1172,16 @@ define({ "api": [
     "name": "PostDoctoraliaScheduleSyncCalendaridScheduleAppointment"
   },
   {
-    "type": "post",
-    "url": "/doctoralia/schedule-sync/:calendarId/schedule-appointment",
-    "title": "completed appointments",
-    "group": "Schedule",
-    "header": {
-      "fields": {
-        "Auth": [
-          {
-            "group": "Auth",
-            "type": "String",
-            "optional": false,
-            "field": "x-access-token",
-            "description": "<p>Authentication token</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "completed",
-            "description": "<p>appointments's list</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "result.id",
-            "description": "<p>Schedule id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "result.title",
-            "description": "<p>Schedule title</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "result.done",
-            "description": "<p>Schedule is done?</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "tasks.updated_at",
-            "description": "<p>Update's date</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "tasks.created_at",
-            "description": "<p>Register's date</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"title\": \"Study\",\n  \"done\": false\n  \"updated_at\": \"2016-02-10T15:46:51.778Z\",\n  \"created_at\": \"2016-02-10T15:46:51.778Z\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/http/routes/doctoralia/schedule/scheduled-appointments/index.js",
-    "groupTitle": "Schedule",
-    "name": "PostDoctoraliaScheduleSyncCalendaridScheduleAppointment"
-  },
-  {
     "type": "put",
     "url": "/doctoralia/schedule-sync/:calendarId/cancel-appointment",
     "title": "Cancel appointments",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --request PUT \\\n  --url 'api.spitzer.io/doctoralia/schedule-sync/eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg/cancel-appointment?customer=5ce5e06d2a311a13c55505b9' \\\n  --header 'content-type: application/x-www-form-urlencoded' \\\n  --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc' \\\n  --data external_id=12 \\\n  --data id=232734 \\\n  --data health_insurance=35",
+        "type": "curl"
+      }
+    ],
     "group": "Schedule",
     "header": {
       "fields": {
@@ -1078,14 +1203,28 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "CalendarID",
+            "field": "calendarId",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "external_id",
             "description": ""
           },
           {
             "group": "Parameter",
             "type": "Number",
             "optional": false,
-            "field": "external_id",
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer",
             "description": ""
           },
           {
@@ -1110,7 +1249,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Boolean",
+            "type": "Number",
             "optional": false,
             "field": "result.status",
             "description": "<p>Schedule is status</p>"
@@ -1229,7 +1368,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "src/http/routes/doctoralia/schedule/completed-appointments/index.js",
+    "filename": "src/http/routes/doctoralia/procedure/completed-appointments/index.js",
     "groupTitle": "Schedule",
     "name": "PutDoctoraliaScheduleSyncCalendaridCompletedAppointments"
   }
