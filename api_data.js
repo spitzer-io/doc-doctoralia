@@ -173,7 +173,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"title\": \"Stage\",\n  \"done\": false\n  \"updated_at\": \"2016-02-10T15:46:51.778Z\",\n  \"created_at\": \"2016-02-10T15:46:51.778Z\"\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n       \"id\": \"21sdfs1dfds1fsd32f132\",\n       \"name\": \"Stage teste 2\",\n       \"address\": \"Rua teste\",\n       \"cep\": \"80540340\",\n       \"city\": \"Curitiba\",\n       \"state\": \"Paraná\",\n       \"phoneNumber\": 4130221459,\n       \"cnpj\": \"74.071.896/0001-36\",\n       \"ie\": \"2123123121\"\n}]",
           "type": "json"
         }
       ]
@@ -519,7 +519,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/doctoralia/schedule-sync/doctors/profile",
+    "url": "/doctoralia/schedule-sync/doctors/profile/:calendarId",
     "title": "Profile Doctor.",
     "examples": [
       {
@@ -761,6 +761,105 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/doctoralia/patient",
+    "title": "List all patient",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl--request GET\\\n   --url 'https://api.spizter.io/doctoralia/patient?customer=5ce5e06d2a311a13c55505b9'\\\n     --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc'",
+        "type": "curl"
+      }
+    ],
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "group": "List_Patient",
+    "description": "<p>List Patient</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer",
+            "description": "<p>The Customer - ID.*</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "patient",
+            "description": "<p>The id - ID.*</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Auth": [
+          {
+            "group": "Auth",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Authentication token</p>"
+          }
+        ]
+      }
+    },
+    "name": "GetAllPatient",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "patient",
+            "description": "<p>patient's list</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "result.id",
+            "description": "<p>patient id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result.title",
+            "description": "<p>patient name</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "   HTTP/1.1 200 OK\n[{\n     \"id\": 3459,\n     \"name\": \"TESTE\",\n     \"cpf\": 212312312323,\n     \"birthDay\": \"1981-10-19T00:00:00.000Z\",\n     \"city\": \"Pinhais\",\n     \"state\": \"PR\",\n     \"address\": \"RUA TESTE\",\n     \"phone\": \"2123123123\",\n     \"mobile\": \"121123121\",\n     \"email\": \"teste@hotmail.com\",\n     \"cep\": 808540340,\n     \"healthInsuranceCode\": 111,\n     \"healthInsuranceName\": \"AMIL\"\n   }]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/http/routes/doctoralia/patient/index.js",
+    "groupTitle": "List_Patient"
+  },
+  {
+    "type": "get",
     "url": "/doctoralia/schedule-sync/:calendarId/available-appointments",
     "title": "List all appointments",
     "examples": [
@@ -912,6 +1011,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "Number",
             "optional": false,
+            "field": "ID",
+            "description": "<p>id scheduled</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
             "field": "health_insurance",
             "description": ""
           },
@@ -1036,7 +1142,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl --request POST \\\n  --url 'http://api.spitzer.io/doctoralia/schedule-sync/eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg/schedule-appointment?customer=5ce5e06d2a311a13c55505b9' \\\n  --header 'content-type: application/x-www-form-urlencoded' \\\n  --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc' \\\n  --data health_insurance=35 \\\n  --data appointment_datetime=2020-02-18T10:40 \\\n  --data 'client_name=Maria teste' \\\n  --data client_birthdate=1985-06-28 \\\n  --data client_phone_number=41999175744 \\\n  --data client_email=alexandre@clinic.com.br \\\n  --data external_id=1212121 \\\n  --data customer=5ce5e06d2a311a13c55505b9",
+        "content": "curl --request POST \\\n    --url 'http://api.spitzer.io/doctoralia/schedule-sync/eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg/schedule-appointment?customer=5ce5e06d2a311a13c55505b9' \\\n    --header 'content-type: application/x-www-form-urlencoded' \\\n    --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc' \\\n    --data health_insurance=113 \\\n    --data appointment_datetime=2020-04-02T08:41 \\\n    --data 'client_name=Maria teste' \\\n    --data client_birthdate=1985-06-28 \\\n    --data client_phone_number=41999175744 \\\n    --data client_email=alexandre@clinic.com.br \\\n    --data external_id=1212121 \\\n    --data customer=5ce5e06d2a311a13c55505b9 \\\n    --data cpf=04469687901 \\\n    --data gender=M",
         "type": "curl"
       }
     ],
@@ -1054,6 +1160,7 @@ define({ "api": [
         ]
       }
     },
+    "description": "<p>When passing the data for scheduling as cpf, gender and date of birth, the system goes to the database to check if the patient is already registered, if or patient has not been registered, he will register or patient.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1112,6 +1219,20 @@ define({ "api": [
             "optional": false,
             "field": "external_id",
             "description": "<p>Id external yout application</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cpf",
+            "description": "<p>cpf external yout application</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender yout application</p>"
           }
         ]
       }
@@ -1146,17 +1267,29 @@ define({ "api": [
             "optional": false,
             "field": "result.status",
             "description": "<p>Schedule is status?</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "result.record",
+            "description": "<p>Schedule record patient</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success",
-          "content": "  HTTP/1.1 200 OK\n{\n  \"result\": {\n    \"results\": {\n      \"status\": 0,\n      \"message\": \"Agendamento Confirmado\",\n      \"id\": 205183\n    }\n  },\n\"message\": \"success\"\n}",
+          "content": "  HTTP/1.1 200 OK\n{\n  \"result\": {\n    \"results\": {\n      \"status\": 0,\n      \"message\": \"Agendamento Confirmado\",\n       \"record\": \"32123132\",\n      \"id\": 205183\n    }\n  },\n\"message\": \"success\"\n}",
           "type": "json"
         }
       ]
     },
+    "permission": [
+      {
+        "name": "user"
+      }
+    ],
     "error": {
       "examples": [
         {
