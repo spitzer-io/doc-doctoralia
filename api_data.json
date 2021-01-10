@@ -840,7 +840,7 @@
       "examples": [
         {
           "title": "Success",
-          "content": "   HTTP/1.1 200 OK\n[{\n     \"id\": 3459,\n     \"name\": \"TESTE\",\n     \"cpf\": 212312312323,\n     \"birthDay\": \"1981-10-19T00:00:00.000Z\",\n     \"city\": \"Pinhais\",\n     \"state\": \"PR\",\n     \"address\": \"RUA TESTE\",\n     \"phone\": \"2123123123\",\n     \"mobile\": \"121123121\",\n     \"email\": \"teste@hotmail.com\",\n     \"cep\": 808540340,\n     \"healthInsuranceCode\": 111,\n     \"healthInsuranceName\": \"AMIL\"\n   }]",
+          "content": "   HTTP/1.1 200 OK\n[{\n     \"id\": 3459,\n     \"name\": \"TESTE\",\n     \"birthDay\": \"1981-10-19T00:00:00.000Z\",\n     \"city\": \"Pinhais\",\n     \"state\": \"PR\",\n     \"address\": \"RUA TESTE\",\n     \"phone\": \"2123123123\",\n     \"mobile\": \"121123121\",\n     \"email\": \"teste@hotmail.com\",\n     \"cep\": 808540340,\n     \"healthInsuranceCode\": 111,\n     \"healthInsuranceName\": \"AMIL\"\n   }]",
           "type": "json"
         }
       ]
