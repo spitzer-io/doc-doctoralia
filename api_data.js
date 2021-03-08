@@ -1504,5 +1504,126 @@ define({ "api": [
     "filename": "src/http/routes/doctoralia/procedure/completed-appointments/index.js",
     "groupTitle": "Schedule",
     "name": "PutDoctoraliaScheduleSyncCalendaridCompletedAppointments"
+  },
+  {
+    "type": "put",
+    "url": "/doctoralia/schedule-sync/:calendarId/confirmation-appointment",
+    "title": "Confirmation appointments",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --request PUT \\\n  --url 'api.spitzer.io/doctoralia/schedule-sync/eyJhbGciOiJIUzI1NiJ9.MTAxODUkNTAz.RA1UPh0hZ3PYneQBe8DGlfu1_UgJWf6K0jpuku2rjtg/confirmation-appointment?customer=5ce5e06d2a311a13c55505b9' \\\n  --header 'content-type: application/x-www-form-urlencoded' \\\n  --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNldHVwQGRvY3RvcmFsaWEuY29tIiwiaWQiOiI1ZTI1ZTI1ZjRmZTUyOTU1ZjM0ODc1YTkiLCJpYXQiOjE1Nzk1NDExMjgsImV4cCI6MTU3OTYyNzUyOH0.XPmkzNxlsxn8dW6fRNVoF5HOcsLhaLpWV7NBhyfYUcc' \\\n  --data external_id=12 \\\n  --data confirmation=true \\\n  --data id=232734 \\\n  --data health_insurance=35",
+        "type": "curl"
+      }
+    ],
+    "group": "Schedule",
+    "header": {
+      "fields": {
+        "Auth": [
+          {
+            "group": "Auth",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Authentication token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "calendarId",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "external_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "confirmation",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "customer",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "health_insurance",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "available",
+            "description": "<p>appointments's list</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "result.status",
+            "description": "<p>Schedule is status</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "message",
+            "optional": false,
+            "field": "result.message",
+            "description": "<p>message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "{\n  \"result\": {\n    \"results\": {\n      \"status\": 0,\n      \"message\": \"Confirmação Enviada\"\n    }\n  },\n  \"message\": \"success\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/http/routes/doctoralia/schedule/confirmation-appointment/index.js",
+    "groupTitle": "Schedule",
+    "name": "PutDoctoraliaScheduleSyncCalendaridConfirmationAppointment"
   }
 ] });
